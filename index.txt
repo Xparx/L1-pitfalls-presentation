@@ -1,0 +1,69 @@
+#+TITLE: Avoiding the pitfalls in L1-regularised inference of gene networks
+#+EMAIL: 
+#+OPTIONS: reveal_center:t reveal_control:t reveal_height:-1
+#+OPTIONS: reveal_history:nil reveal_keyboard:t
+#+OPTIONS: reveal_mathjax:nil reveal_overview:nil reveal_progress:t
+#+OPTIONS: reveal_rolling_links:nil reveal_slide_number:t
+#+OPTIONS: reveal_width:-1 reveal_mathjax:t toc:nil
+#+REVEAL_MARGIN: -1
+#+REVEAL_MIN_SCALE: -1
+#+REVEAL_MAX_SCALE: -1
+#+REVEAL_ROOT: http://cdn.jsdelivr.net/reveal.js/2.6.2/
+#+REVEAL_TRANS: linear
+#+REVEAL_SPEED: default
+#+REVEAL_THEME: simple
+# this does not work for some reason. This does, but is not needed:  <style> h1 { font-size: 2em !important; } </style>
+# #+REVEAL_EXTRA_CSS: css/print/pdf.css 
+# ./css/custom.css
+#+REVEAL_EXTRA_JS:
+#+REVEAL_HLEVEL:
+#+REVEAL_TITLE_SLIDE_TEMPLATE: <h2>%t</h2> <h3>%a</h3> <h4>%e</h4> <h4>%d</h4>
+#+REVEAL_MATHJAX_URL: http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+#+REVEAL_HEAD_PREAMBLE: <style> img { border-style: none !important; } </style> <meta name="apple-mobile-web-app-capable" content="yes" /> <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+#+REVEAL_PREAMBLE:
+#+REVEAL_POSTAMBLE:
+# #+REVEAL_PLUGINS:
+
+* Systems Biology
+#+reveal_html: <br>
+#+reveal_html: <br>
+GRN Network Inference
+#+ATTR_HTML: :width 50%
+file:./img/SysBio-2d.png
+
+Inspired by /Arkin and Schaffer (2011)/
+
+* Linear dynamical systems (LDS)
+#+reveal_html: <br>
+#+begin_src latex :exports results :results html
+  \[
+  \begin{array}{r c l}
+    \dot{x}_i(t) &=& \sum_{j=1}^N a_{ij}x_j(t) + p_i(t) - f_i(t)\\
+    y_i(t) &=& x_i(t) + e_i(t)
+  \end{array}
+  \]
+#+end_src
+#+reveal_html: <br>
+#+reveal_html: <br>
+at Steady State
+#+begin_src latex :exports results :results html
+  \[
+  \boldsymbol{Y} = -\boldsymbol{A}^{-1}\boldsymbol{P} +\boldsymbol{A}^{-1}\boldsymbol{F} + \boldsymbol{E}
+  \]
+#+end_src
+
+* Solving LDS
+
+#+reveal_html: <br>
+#+reveal_html: <br>
+
+#+ATTR_REVEAL: :frag roll-in
+Regression
+
+#+ATTR_REVEAL: :frag roll-in
+Penalized regression 
+
+
+* The pitfalls of $L_1$
+$L_1$ GRN inference methods fail even though the data is informative enough for inferring the correct network structure.
+* Performance of $L_1$
